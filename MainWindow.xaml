@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="测试依赖属性" Height="150" Width="250">
+        Title="测试依赖属性" Height="150" Width="250" WindowStartupLocation="CenterScreen">
     <StackPanel VerticalAlignment="Center">
-        <TextBox x:Name="box1" Width="200" Height="20" Margin="5"/>
-        <TextBox x:Name="box2" Width="200" Height="20" Margin="5"/>
+        <TextBox x:Name="box1" Width="200" Height="20" Margin="5" />
+        <TextBox x:Name="box2" Width="200" Height="20" Margin="5" />
         <Button x:Name="btn1" Margin="5" Height="20" Width="200" Content="按钮" Click="btn1_Click"/>
     </StackPanel>
 </Window>
