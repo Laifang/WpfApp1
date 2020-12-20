@@ -23,24 +23,32 @@ namespace WpfApp1
         }
 
         private void btn1_Click(object sender, RoutedEventArgs e)
+
         {
+            //如果已经实现 依赖属性的注册和clr包装器 ，就可以用这种直观的方式调用属性；
+            //stu = new Student();
+            //stu.Name = box1.Text;
+            //box2.Text = stu.Name;
             MessageBox.Show(stu.GetValue(Student.NameProperty).ToString());
         }
     }
     public class Student : DependencyObject
     {
-
+        //propdp tab、tab 键 codeSnippet 代码快捷指令 快速生成 依赖属性注册和Clr包装器
         public static readonly DependencyProperty NameProperty = DependencyProperty.Register("Name", typeof(string), typeof(Student));
-       // 当Student类 使用了依赖属性和clr属性包装器，就可以实现绑定
+       //CLR包装器
         public string Name
         {
             get { return (string)GetValue(NameProperty); }
             set { SetValue(NameProperty, value); }
         }
+
         //实现这个方法可以使得Student类 直接调用SetBinding方法,这个方法本身可以看见，也是对BidingOperations.SetBinding()的一个薄封装
         public BindingExpressionBase SetBinding(DependencyProperty dp, BindingBase binding)
         {
             return BindingOperations.SetBinding(this, dp, binding);
         }
+    }
+
     }
 }
