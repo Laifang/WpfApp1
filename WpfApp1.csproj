@@ -67,6 +67,9 @@
     <Compile Include="chapter07\DependencyPropertyTest.xaml.cs">
       <DependentUpon>DependencyPropertyTest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TextOnlyButton.xaml.cs">
+      <DependentUpon>TextOnlyButton.xaml</DependentUpon>
+    </Compile>
     <Page Include="chapter05\Chapter_5_4_2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -113,6 +116,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="chapter07\DependencyPropertyTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TextOnlyButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
