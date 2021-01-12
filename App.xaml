@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:WpfApp1"
              StartupUri="CustomerButtonExam.xaml">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/resource/IconButtonStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

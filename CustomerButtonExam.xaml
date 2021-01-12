@@ -73,6 +73,15 @@
             <!--这是取消focus状态的按钮-->
         </StackPanel>
         <!--图标按钮演示-->
-        <Button Content="这是一个图标按钮" Height="30" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <StackPanel Grid.Row="1"  Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Content="检测" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource IconButton}"/>
+            <Button Content="检测" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource IconButton}"/>
+            <Button Content="清除" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource IconButton}"/>
+            <Button Content="返回默认值" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource IconButton}"/>
+            <Button Content="失效按钮" IsEnabled="False" Height="30" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource IconButton}"/>
+        </StackPanel>
+       
+        
+
     </Grid>
 </Window>
