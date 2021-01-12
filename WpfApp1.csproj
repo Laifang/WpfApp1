@@ -67,8 +67,8 @@
     <Compile Include="chapter07\DependencyPropertyTest.xaml.cs">
       <DependentUpon>DependencyPropertyTest.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TextOnlyButton.xaml.cs">
-      <DependentUpon>TextOnlyButton.xaml</DependentUpon>
+    <Compile Include="CustomerButtonExam.xaml.cs">
+      <DependentUpon>CustomerButtonExam.xaml</DependentUpon>
     </Compile>
     <Page Include="chapter05\Chapter_5_4_2.xaml">
       <SubType>Designer</SubType>
@@ -87,6 +87,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="chapter06\chapter_6_3_1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resource\IconButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -119,7 +123,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TextOnlyButton.xaml">
+    <Page Include="CustomerButtonExam.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -149,6 +153,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="resource\Button\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
