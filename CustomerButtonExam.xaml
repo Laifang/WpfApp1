@@ -1,11 +1,12 @@
-﻿<Window x:Class="WpfApp1.TextOnlyButton"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d"
-        Title="CustomerButtonShow" Height="600" Width="400" WindowStartupLocation="CenterScreen">
+﻿<Window x:Class="WpfApp1.TextOnlyButton" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        Title="CustomerButtonShow" Width="600"
+        Height="800" WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d">
+    <!--  这是文本按钮的style定义  -->
     <Window.Resources>
+        <!--  这是设置focus状态样式的代码 现在把他注释为不启用  -->
         <!--<Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
                 <Setter.Value>
@@ -33,24 +34,23 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <ContentPresenter x:Name="contentPresenter"
-                                          Focusable="False"
-                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           Margin="{TemplateBinding Padding}"
-                                          RecognizesAccessKey="True"
-                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Focusable="False" RecognizesAccessKey="True"
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true">
-                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                                <Setter TargetName="contentPresenter" Property="TextElement.Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.MouseOver.Foreground}" />
+                                <Setter TargetName="contentPresenter" Property="TextElement.Foreground" Value="{StaticResource Button.MouseOver.Foreground}" />
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Pressed.Foreground}" />
+                                <Setter TargetName="contentPresenter" Property="TextElement.Foreground" Value="{StaticResource Button.Pressed.Foreground}" />
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}" />
+                                <Setter TargetName="contentPresenter" Property="TextElement.Foreground" Value="{StaticResource Button.Disabled.Foreground}" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -59,26 +59,65 @@
         </Style>
     </Window.Resources>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="5*" />
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Button Content="纯文本按钮"  FontSize="20" Height="40" Style="{DynamicResource TextOnlyButton}" />
-            <Button Content="Disable按钮"  IsEnabled="False" FontSize="18" Height="40" Style="{DynamicResource TextOnlyButton}" />
-            <Button Content="查看更多关于屏幕参数的信息"  FontSize="22" Height="40" Style="{DynamicResource TextOnlyButton}" />
-            <Button Content="查看更多关于屏幕参数的信息"  FontSize="20" Height="40" Style="{DynamicResource TextOnlyButton}" />
-            <Button Content="查看更多关于屏幕参数的信息"  FontSize="18" Height="40" Style="{DynamicResource TextOnlyButton}" />
-            <Button Content="取消Focus状态" FocusVisualStyle="{x:Null}"  FontSize="16" Height="40" Style="{DynamicResource TextOnlyButton}" />
-            <!--这是取消focus状态的按钮-->
+        <!--  这是纯图标按钮演示  -->
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Orientation="Vertical">
+            <Button Height="50" Style="{DynamicResource IconOnlyButton}" />
         </StackPanel>
-        <!--图标按钮演示-->
-        <StackPanel Grid.Row="1"  Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button Content="检测" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource IconButton}" />
-            <Button Content="检测" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource IconButton}" />
-            <Button Content="清除" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource IconButton}" />
-            <Button Content="返回默认值" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource IconButton}" />
-            <Button Content="失效按钮" IsEnabled="False" Height="30" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{DynamicResource IconButton}" />
+
+        <!--  这是文本按钮演示  -->
+        <StackPanel Grid.Column="1" HorizontalAlignment="Center"
+                    VerticalAlignment="Center" Orientation="Vertical">
+            <Button Height="40" Content="纯文本按钮"
+                    FontSize="20"
+                    Style="{DynamicResource TextOnlyButton}" />
+            <Button Height="40" Content="Disable按钮"
+                    FontSize="18" IsEnabled="False"
+                    Style="{DynamicResource TextOnlyButton}" />
+            <Button Height="40" Content="查看更多关于屏幕参数的信息"
+                    FontSize="22"
+                    Style="{DynamicResource TextOnlyButton}" />
+            <Button Height="40" Content="查看更多关于屏幕参数的信息"
+                    FontSize="20"
+                    Style="{DynamicResource TextOnlyButton}" />
+            <Button Height="40" Content="查看更多关于屏幕参数的信息"
+                    FontSize="18"
+                    Style="{DynamicResource TextOnlyButton}" />
+            <Button Height="40" Content="取消Focus状态"
+                    FocusVisualStyle="{x:Null}"
+                    FontSize="16"
+                    Style="{DynamicResource TextOnlyButton}" />
+            <!--  这是取消focus状态的按钮  -->
         </StackPanel>
+        <!--  这是带背景颜色按钮演示  -->
+        <StackPanel Grid.Row="1" Grid.Column="1"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Orientation="Vertical">
+            <Button Height="30" HorizontalAlignment="Center"
+                    VerticalAlignment="Center" Content="检测"
+                    Style="{DynamicResource BackgroudButton}" />
+            <Button Height="30" HorizontalAlignment="Center"
+                    VerticalAlignment="Center" Content="设置"
+                    Style="{DynamicResource BackgroudButton}" />
+            <Button Height="30" HorizontalAlignment="Center"
+                    VerticalAlignment="Center" Content="清除"
+                    Style="{DynamicResource BackgroudButton}" />
+            <Button Height="30" HorizontalAlignment="Center"
+                    VerticalAlignment="Center" Content="返回默认值"
+                    Style="{DynamicResource BackgroudButton}" />
+            <Button Grid.Row="1" Height="30"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Content="失效按钮" IsEnabled="False"
+                    Style="{DynamicResource BackgroudButton}" />
+        </StackPanel>
+
     </Grid>
 </Window>
