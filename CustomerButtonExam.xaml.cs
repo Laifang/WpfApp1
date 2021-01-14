@@ -5,11 +5,16 @@ namespace WpfApp1
     /// <summary>
     /// TextOnlyButton.xaml 的交互逻辑
     /// </summary>
-    public partial class TextOnlyButton : Window
+    public partial class CustomerButtonExam : Window
     {
-        public TextOnlyButton()
+        public CustomerButtonExam()
         {
             InitializeComponent();
+        }
+
+        private void WithDescIconTextButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

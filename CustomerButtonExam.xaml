@@ -1,13 +1,13 @@
 ﻿<Window
-    x:Class="WpfApp1.TextOnlyButton"
+    x:Class="WpfApp1.CustomerButtonExam"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:WpfApp1"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="CustomerButtonShow"
-    Width="600"
-    Height="800"
+    Width="1024"
+    Height="768"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <!--  整个项目是学习UP主的自定义按钮教程来学习WPF自定义模板的知识点，主要是仿照win10设置菜单的样式改造原有原生Button  -->
@@ -69,8 +69,8 @@
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*" />
-            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="7*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -198,5 +198,44 @@
                 Style="{DynamicResource BackgroudButton}" />
         </StackPanel>
 
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="0"
+            HorizontalAlignment="Left"
+            Orientation="Vertical">
+            <local:WithDescIconTextButton
+                Width="300"
+                Click="WithDescIconTextButton_Click"
+                Content="Bluetooth Mouse"
+                Description="已经成功配对"
+                FontSize="14"
+                Style="{DynamicResource WithDescIconTextButton}">
+                <local:WithDescIconTextButton.IconData>
+                    <StreamGeometry>M616 64H408c-119.3 0-216 96.71-216 216v360c0 176.73 143.27 320 320 320s320-143.27 320-320V280c0-119.29-96.71-216-216-216z m168 576a272 272 0 1 1-544 0V280a168 168 0 0 1 168-168h92v113.3a56 56 0 0 0-44 54.7v80a56 56 0 0 0 112 0v-80a56 56 0 0 0-44-54.7V112h92a168 168 0 0 1 168 168zM512 238a42 42 0 0 1 42 42v80a42 42 0 0 1-84 0v-80a42 42 0 0 1 42-42z</StreamGeometry>
+                </local:WithDescIconTextButton.IconData>
+            </local:WithDescIconTextButton>
+            <local:WithDescIconTextButton
+                Width="300"
+                Click="WithDescIconTextButton_Click"
+                Content="HSTX"
+                Description="已连接"
+                FontSize="14"
+                Style="{DynamicResource WithDescIconTextButton}">
+                <local:WithDescIconTextButton.IconData>
+                    <StreamGeometry>M680.964226 902.043391c-1.362021 31.798217-27.571962 56.665581-59.106166 56.665581-0.851391 0-1.707898-0.016373-2.570545-0.053212-32.664957-1.397836-58.014298-29.007661-56.621579-61.667501 6.517437-152.447041-30.026874-267.152503-108.62293-340.93288C328.85582 438.533778 132.871193 457.808774 130.905422 458.024691c-32.385595 3.462868-61.639872-20.015869-65.177442-52.450583-3.53143-32.43369 19.772322-61.604056 52.207036-65.219397 10.143011-1.150196 250.728438-26.002211 416.318824 128.610146C639.679961 567.401798 689.043229 713.106274 680.964226 902.043391zM215.776392 672.863734c-36.812417 0-72.871681 14.960737-98.91994 41.004903-26.053376 26.044166-41.011043 62.098313-41.011043 98.904591 0 36.805254 14.957667 72.860425 41.011043 98.903567 26.048259 26.044166 62.107523 41.004903 98.91994 41.004903 36.916794 0 72.977082-14.960737 98.91994-41.004903 26.048259-26.044166 41.011043-62.098313 41.011043-98.903567 0-36.806277-14.962783-72.861448-41.011043-98.904591C288.753473 687.824471 252.693186 672.863734 215.776392 672.863734zM739.609904 255.634168C492.716818 27.048029 132.646066 67.300802 117.439736 69.124334c-32.460296 3.898797-55.616692 33.368992-51.721988 65.829288 3.894703 32.44904 33.357735 55.539944 65.839521 51.713802 3.174296-0.3776 320.463686-35.960003 527.600303 155.825998 129.992633 120.355135 190.540637 306.917158 179.960675 554.49586-1.39272 32.658817 23.955598 60.268642 56.621579 61.667501 0.860601 0.036839 1.718131 0.053212 2.569522 0.053212 31.535227 0 57.746192-24.867364 59.108213-56.665581C969.546807 618.159832 896.26478 400.676565 739.609904 255.634168z</StreamGeometry>
+                </local:WithDescIconTextButton.IconData>
+            </local:WithDescIconTextButton>
+            <local:WithDescIconTextButton
+                Width="300"
+                Click="WithDescIconTextButton_Click"
+                Content="手机"
+                Description="连接Android或iPhone"
+                FontSize="14"
+                Style="{DynamicResource WithDescIconTextButton}">
+                <local:WithDescIconTextButton.IconData>
+                    <StreamGeometry>M176.2 175.5c0-61.8 50.1-111.9 111.9-111.9h447.7c61.8 0 111.9 50.1 111.9 111.9v671.6c0 61.8-50.1 111.9-111.9 111.9H288.1c-61.8 0-111.9-50.1-111.9-111.9V175.5z m111.9-37.3c-20.6 0-37.3 16.7-37.3 37.3v671.6c0 20.6 16.7 37.3 37.3 37.3h447.7c20.6 0 37.3-16.7 37.3-37.3V175.5c0-20.6-16.7-37.3-37.3-37.3H288.1z m149.3 37.3c-20.6 0-37.3 16.7-37.3 37.3s16.7 37.3 37.3 37.3h149.2c20.6 0 37.3-16.7 37.3-37.3s-16.7-37.3-37.3-37.3H437.4z m74.6 597c-20.6 0-37.3 16.7-37.3 37.3s16.7 37.3 37.3 37.3 37.3-16.7 37.3-37.3-16.7-37.3-37.3-37.3z</StreamGeometry>
+                </local:WithDescIconTextButton.IconData>
+            </local:WithDescIconTextButton>
+        </StackPanel>
     </Grid>
 </Window>

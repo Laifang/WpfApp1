@@ -29,22 +29,5 @@ namespace WpfApp1
         /// </summary>
         public static readonly DependencyProperty IconDataProperty =
             DependencyProperty.Register(nameof(IconData), typeof(Geometry), typeof(IconTextButton));
-
-
-
-        //public string Text
-        //{
-        //    get { return (string)GetValue(TextProperty); }
-        //    set { SetValue(TextProperty, value); }
-        //}
-
-
-        ///// <summary>
-        ///// <see cref="Text"/>
-        ///// </summary>
-        //public static readonly DependencyProperty TextProperty =
-        //    DependencyProperty.Register(nameof(Text), typeof(string), typeof(IconTextButton) );
-
-
     }
 }

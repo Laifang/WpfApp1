@@ -8,6 +8,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="resource/BackgroudButtonStyle.xaml" />
                 <ResourceDictionary Source="resource/IconTextButtonStyle.xaml" />
+                <ResourceDictionary Source="resource/WithDescIconTextButtonStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <!--  以上是样式资源的整合文档  -->
             <!--  分割线  -->

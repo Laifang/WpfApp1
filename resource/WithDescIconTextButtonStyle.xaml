@@ -1,0 +1,88 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:WpfApp1">
+    <SolidColorBrush x:Key="IconTextButton.Static.Background" Color="Transparent" />
+    <SolidColorBrush x:Key="IconTextButton.Icon.Static.Fill" Color="#000" />
+    <SolidColorBrush x:Key="IconTextButton.MouseOver.Background" Color="#D7DCDCDC" />
+    <DropShadowEffect
+        x:Key="DeepPathEffect"
+        ShadowDepth="1"
+        Color="Black" />
+    <!--  这个阴影效果 实现按下按钮变深颜色  -->
+    <Style x:Key="WithDescIconTextButton" TargetType="local:WithDescIconTextButton">
+        <!--
+            WithDescIconTextButton 如下特点：
+            - 按钮内容同时存在图标和文本，并且图标和文本都能根据不同功能变化。
+            - 默认情况下，背景为透明
+            - 鼠标放上去，有一个灰色背景色
+            - 鼠标按上去，背景色加深，图标和文本加粗
+        -->
+        <Setter Property="Background" Value="{StaticResource IconTextButton.Static.Background}" />
+        <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />-->
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Foreground" Value="#000" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:WithDescIconTextButton}">
+                    <Grid x:Name="cotainerPanel" Margin="0">
+                        <Border
+                            x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="true" />
+
+                        <StackPanel Orientation="Horizontal">
+                            <Border Width="60" Padding="19">
+                                <Viewbox>
+                                    <Path
+                                        x:Name="iconPath"
+                                        Data="{TemplateBinding IconData}"
+                                        Fill="{TemplateBinding Foreground}"
+                                        Stretch="Uniform" />
+                                </Viewbox>
+                            </Border>
+
+                            <StackPanel VerticalAlignment="Center">
+                                <ContentPresenter
+                                    x:Name="contentPresenter"
+                                    Margin="{TemplateBinding Padding}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Focusable="False"
+                                    RecognizesAccessKey="True"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+
+                                <TextBlock
+                                    Padding="{TemplateBinding Padding}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    Foreground="{TemplateBinding Foreground}"
+                                    Opacity="0.5"
+                                    Text="{TemplateBinding Description}" />
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource IconTextButton.MouseOver.Background}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter TargetName="cotainerPanel" Property="Margin" Value="3,0" />
+                            <Setter TargetName="contentPresenter" Property="TextElement.FontWeight" Value="Black" />
+                            <Setter TargetName="iconPath" Property="Effect" Value="{StaticResource DeepPathEffect}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
