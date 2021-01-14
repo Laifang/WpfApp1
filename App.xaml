@@ -1,10 +1,16 @@
-﻿<Application x:Class="WpfApp1.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" StartupUri="CustomerButtonExam.xaml">
+﻿<Application
+    x:Class="WpfApp1.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    StartupUri="CustomerButtonExam.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/resource/BackgroudButtonStyle.xaml" />
+                <ResourceDictionary Source="resource/BackgroudButtonStyle.xaml" />
+                <ResourceDictionary Source="resource/IconTextButtonStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <!--  以上是样式资源的整合文档  -->
+            <!--  分割线  -->
             <!--  以下是纯图标按钮的style定义，这次选择在app.xaml文件内放置，这样的话全部程序都可以引用  -->
             <SolidColorBrush x:Key="Button.Static.Background2" Color="Transparent" />
             <SolidColorBrush x:Key="Path.Static.Fill" Color="#000" />
@@ -13,29 +19,39 @@
             <SolidColorBrush x:Key="Path.MouseOver.Fill" Color="#fff" />
             <SolidColorBrush x:Key="Button.Pressed.Background2" Color="#FF64C9FD" />
             <SolidColorBrush x:Key="Button.Pressed.Border2" Color="#FF64C9FD" />
-            <SolidColorBrush x:Key="Path.Pressed.Fill" Color="#fff" />
             <SolidColorBrush x:Key="Button.Disabled.Background2" Color="#FFF4F4F4" />
             <SolidColorBrush x:Key="Button.Disabled.Border2" Color="#FFADB2B5" />
             <SolidColorBrush x:Key="Button.Disabled.Foreground2" Color="#FF838383" />
             <Style x:Key="IconOnlyButton" TargetType="{x:Type Button}">
+                <!--
+                    IconOnlyButton的特点：
+                    - 默认背景无颜色，图标黑色
+                    -鼠标经过 背景变为深色 图标白色
+                    -按下 背景变为浅色
+                -->
                 <Setter Property="Background" Value="{StaticResource Button.Static.Background2}" />
                 <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />-->
                 <Setter Property="BorderThickness" Value="0" />
                 <Setter Property="HorizontalContentAlignment" Value="Center" />
                 <Setter Property="VerticalContentAlignment" Value="Center" />
+                <Setter Property="Cursor" Value="Hand" />
                 <Setter Property="Padding" Value="10" />
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Button}">
-                            <Border x:Name="border"
-                                    Background="{TemplateBinding Background}"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    SnapsToDevicePixels="true">
-                                <Viewbox>
-                                    <Path x:Name="iconPath"
-                                          Fill="{StaticResource Path.Static.Fill}"
-                                          Stretch="Uniform">
+                            <Border
+                                x:Name="border"
+                                Padding="10"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                SnapsToDevicePixels="true">
+
+                                <Viewbox Width="20" HorizontalAlignment="Left">
+                                    <Path
+                                        x:Name="iconPath"
+                                        Fill="{StaticResource Path.Static.Fill}"
+                                        Stretch="Uniform">
                                         <Path.Data>
                                             <StreamGeometry>M263.232 576L640 931.84 554.24 1024 0 515.392 549.952 0 640 98.88 270.4 448H1024v128z</StreamGeometry>
                                         </Path.Data>
@@ -43,9 +59,6 @@
                                 </Viewbox>
                             </Border>
                             <ControlTemplate.Triggers>
-                                <!--<Trigger Property="IsDefaulted" Value="true">
-                                    <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
-                                </Trigger>-->
                                 <Trigger Property="IsMouseOver" Value="true">
                                     <Setter TargetName="border" Property="Background" Value="{StaticResource Button.MouseOver.Background2}" />
                                     <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Button.MouseOver.Border2}" />
@@ -54,13 +67,8 @@
                                 <Trigger Property="IsPressed" Value="true">
                                     <Setter TargetName="border" Property="Background" Value="{StaticResource Button.Pressed.Background2}" />
                                     <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Button.Pressed.Border2}" />
-                                    <Setter TargetName="iconPath" Property="Fill" Value="{StaticResource Path.Pressed.Fill}" />
-
                                 </Trigger>
-                                <!--<Trigger Property="IsEnabled" Value="false">
-                                    <Setter TargetName="border" Property="Background" Value="{StaticResource Button.Disabled.Background2}" />
-                                    <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Button.Disabled.Border2}" />
-                                </Trigger>-->
+
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
                     </Setter.Value>
