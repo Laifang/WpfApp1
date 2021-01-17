@@ -108,6 +108,7 @@
     <Compile Include="CustomerButtonExam.xaml.cs">
       <DependentUpon>CustomerButtonExam.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DescIconButton.cs" />
     <Compile Include="WithDescIconTextButton.cs" />
     <Page Include="chapter05\Chapter_5_4_2.xaml">
       <SubType>Designer</SubType>
@@ -164,6 +165,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CustomerButtonExam.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resource\DescIconButtonStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
