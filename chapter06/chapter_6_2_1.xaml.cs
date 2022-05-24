@@ -25,7 +25,7 @@ namespace WpfApp1.chapter06
 
             //使用Binding 连接数据源与Binding目标
             BindingOperations.SetBinding(this.textBoxName, TextBox.TextProperty, binding);
-            //TextBox  本身的基类FrameWorkElement 对BindingOperations.setBinding（...)方法进行了分装，以下是简化的代码
+            //TextBox  本身的基类FrameWorkElement 对BindingOperations.setBinding（...)方法进行了封装，以下是简化的代码
             //this.textBoxName.SetBinding(TextBox.TextProperty, new Binding() { Source = stu = new Student() });
         }
 
